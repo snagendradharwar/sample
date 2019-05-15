@@ -1,4 +1,4 @@
-<project name="Sample usage of Salesforce Ant tasks"  basedir="." xmlns:sf="antlib:com.salesforce">
+<project name="Salesforce Ant tasks"  basedir="." xmlns:sf="antlib:com.salesforce">
 
     <property file="build.properties"/>
     <property name="src.dir" value="../src"/>
@@ -11,24 +11,24 @@
     <condition property="sf.password" value=""> <not> <isset property="sf.password"/> </not> </condition>
     <condition property="sf.sessionId" value=""> <not> <isset property="sf.sessionId"/> </not> </condition>
 
-    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+   <!-- <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
             <pathelement location="../ant-salesforce.jar" />        	
         </classpath>
-    </taskdef>
+    </taskdef>-->
 	
     
 
-    <!-- Shows deploying code & running tests for code in directory -->
-    <target name="deployCode">
+   <!-- Shows deploying code & running tests for code in directory -->
+    <target name="deploy">
       <!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
+	  <echo message="START: SFDC Deployment" />
       <sf:deploy username="${sf.username}" 
 	  password="${sf.password}" sessionId="${sf.sessionId}" 
 	  serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" 
 	  deployRoot="${src.dir}" 
-	  runAllTests="false"> 
+	  runAllTests="false"/> 
 	  
-      </sf:deploy>
     </target>
 	
 	
