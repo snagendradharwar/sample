@@ -25,7 +25,7 @@
       <sf:deploy username="${sf.username}" 
 	  password="${sf.password}" sessionId="${sf.sessionId}" 
 	  serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" 
-	  deployRoot="sampleTest" 
+	  deployRoot="${src.dir}" 
 	  runAllTests="false"> 
 	  
       </sf:deploy>
